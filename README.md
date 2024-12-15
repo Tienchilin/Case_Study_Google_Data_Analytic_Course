@@ -14,13 +14,13 @@ Please download the data from 2023/12 to 2024/12 [here](https://divvy-tripdata.s
 * Visualize both in R and export results for Tableau.
 For more details, please check the [Case_Study_1](R_for_case_study/case_study_1.Rmd) file.
 ## Preliminary results in R
-Following the instructions in [Case_Study_1](R_for_case_study/case_study_1.Rmd), four graphs can be generated. <br />
+Following the instructions in [Case_Study_1](R_for_case_study/case_study_1.Rmd), four graphs can be generated.
 ### The first two are the weekly rides and riding durations by month: <br />
 ![Figure1](R_for_case_study/weekly_num_ride_by_month.png) 
-![Figure2](R_for_case_study/weekly_ride_length_by_month.png) <br /><br />
+![Figure2](R_for_case_study/weekly_ride_length_by_month.png) <br />
 ### The last two are the rides and riding durations throughout the previous year: <br />
 ![Figure3](R_for_case_study/weekly_num_ride_by_year.png) 
-![Figure4](R_for_case_study/weekly_ride_length_by_year.png) <br /><br />
+![Figure4](R_for_case_study/weekly_ride_length_by_year.png) <br />
 We can observe some trends:
 * Casual riders have more riding durations than annual members.
 * Casual riders have fewer rides than annual members.
