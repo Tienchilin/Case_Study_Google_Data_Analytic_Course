@@ -20,8 +20,8 @@ Following the instructions in [Case_Study_1](R_for_case_study/case_study_1.Rmd),
 ![Figure2](R_for_case_study/weekly_ride_length_by_month.png) <br />
 ### The last two are the rides and riding durations throughout the previous year: <br />
 ![Figure3](R_for_case_study/weekly_num_ride_by_year.png) 
-![Figure4](R_for_case_study/weekly_ride_length_by_year.png) <br />
-We can observe some trends:
+![Figure4](R_for_case_study/weekly_ride_length_by_year.png) <br /><br />
+These graphs indicate some trends:
 * Casual riders have more riding durations than annual members.
 * Casual riders have fewer rides than annual members.
 * The most popular riding time of the week is weekends.
