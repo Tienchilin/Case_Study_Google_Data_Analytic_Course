@@ -1,0 +1,190 @@
+---
+title: "Case Study 1: How does a bike-share navigate speedy success?"
+author: "Tien-Chi Lin"
+date: "2024-12-15"
+output: html_document
+---
+
+## STEP 0: LOAD PACKAGES FOR THE CASE STUDY
+```{r}
+library(tidyverse)
+library(lubridate)
+library(stringr)
+library(ggplot2)
+library(dplyr)
+```
+
+## STEP 1: COLLECT DATA
+Upload Divvy datasets (csv files) here
+```{r cache = TRUE}
+nov_2024 <- read.csv("../origin_csv/202411-divvy-tripdata.csv")
+oct_2024 <- read.csv("../origin_csv/202410-divvy-tripdata.csv")
+sep_2024 <- read.csv("../origin_csv/202409-divvy-tripdata.csv")
+aug_2024 <- read.csv("../origin_csv/202408-divvy-tripdata.csv")
+jul_2024 <- read.csv("../origin_csv/202407-divvy-tripdata.csv")
+jun_2024 <- read.csv("../origin_csv/202406-divvy-tripdata.csv")
+may_2024 <- read.csv("../origin_csv/202405-divvy-tripdata.csv")
+apr_2024 <- read.csv("../origin_csv/202404-divvy-tripdata.csv")
+mar_2024 <- read.csv("../origin_csv/202403-divvy-tripdata.csv")
+feb_2024 <- read.csv("../origin_csv/202402-divvy-tripdata.csv")
+jan_2024 <- read.csv("../origin_csv/202401-divvy-tripdata.csv")
+dec_2023 <- read.csv("../origin_csv/202312-divvy-tripdata.csv")
+```
+
+## STEP 2: WRANGLE DATA AND COMBINE INTO A SINGLE FILE
+Inspect dataframes
+```{r}
+str(nov_2024)
+```
+
+
+Stack individual monthly dataframes into one full-year dataframe
+```{r}
+all_trips <- bind_rows(nov_2024, oct_2024, sep_2024, aug_2024, 
+                       jul_2024, jun_2024, may_2024, apr_2024,
+                       mar_2024, feb_2024, jan_2024, dec_2023)
+```
+
+
+## STEP 3: CLEAN UP AND ADD DATA TO PREPARE FOR ANALYSIS
+Add columns that list the date, month, weekday, and year of each ride
+This will help us aggregate data for further analysis
+```{r}
+all_trips$date <- as.Date(all_trips$started_at) #The default format is yyyy-mm-dd
+all_trips$month <- format(as.Date(all_trips$date), "%m")
+all_trips$day <- format(as.Date(all_trips$date), "%d")
+all_trips$year <- format(as.Date(all_trips$date), "%Y")
+all_trips$day_of_week <- format(as.Date(all_trips$date), "%A")
+```
+
+
+Add a "ride_length" calculation to all_trips (in seconds)
+```{r}
+all_trips$ride_length <- difftime(all_trips$ended_at,all_trips$started_at)
+```
+
+Convert the class of "ride_length" from difftime to numeric so we can run further calculations
+```{r}
+all_trips$ride_length <- as.numeric(as.character(all_trips$ride_length))
+```
+
+Check the reliability of "ride_length", which should be no smaller than 0
+```{r}
+min(all_trips$ride_length)
+```
+
+Store the total number of records and the number of bad records
+```{r}
+count_all_data <- length(all_trips$ride_length)
+count_all_data
+count_bad_data <- sum(all_trips$ride_length<0)
+count_bad_data
+```
+
+There is the reliability issue about "ride_length", so clean data by removing "bad" data
+We will create a new version of the dataframe (v2) since data is being removed
+```{r}
+all_trips_v2 <- all_trips[!(all_trips$ride_length<0),]
+```
+
+Check again the modified result
+```{r}
+min(all_trips_v2$ride_length)
+```
+
+Check the reliability of "member_casual", which should only has value "member" and "casual"
+In this case, no wrong string value exists, no need for cleaning
+```{r}
+count_wrong_word <- sum(!(all_trips_v2$member_casual %in% c("member", "casual")))
+count_wrong_word
+```
+
+## STEP 4: CONDUCT DESCRIPTIVE ANALYSIS
+Use `summary()` to see all measured metric: mean, median, min, max, etc.
+```{r}
+summary(all_trips_v2$ride_length)
+```
+
+Optional: Compare members and casual users
+```{r}
+#aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = mean)
+#aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = median)
+#aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = max)
+#aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual, FUN = min)
+```
+
+
+Fix the order of "day of week" from Sunday to Saturday 
+```{r}
+all_trips_v2$day_of_week <- ordered(all_trips_v2$day_of_week, levels=c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
+```
+
+
+Optional: Run the average ride time by each day for members vs casual users
+```{r}
+#aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
+```
+
+Analyze monthly ridership data by type and weekday
+```{r}
+data_monthly <- all_trips_v2 %>% 
+  mutate(weekday = wday(started_at, label = TRUE)) %>%                           # Create weekday field using wday()
+  mutate(month = factor(month.abb[as.numeric(month)], levels = month.abb)) %>%   # Transform the numeric value of month into month abbreviation
+  group_by(month, member_casual, weekday) %>%                                    # Group by month, type and weekday
+  summarise(number_of_rides = n()							                                   # Calculate the number of rides and average duration 
+            ,average_duration = mean(ride_length)) %>% 		                       # Calculate the average duration
+  arrange(month, member_casual, weekday) 								                         # Sort
+```
+
+Visualize the number of rides by rider type
+```{r}
+data_monthly  %>% 
+  ggplot(aes(x = weekday, y = number_of_rides, fill = member_casual)) +
+  facet_wrap(~month) +
+  geom_col(position = "dodge") +
+  labs(title='Weekly Riding Patterns by Month', subtitle='Number of rides', x=' ', y='')
+```
+
+Visualize the average duration by rider type
+```{r}
+data_monthly  %>% 
+  ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
+  facet_wrap(~month) +
+  geom_col(position = "dodge") +
+  labs(title='Weekly Riding Patterns by Month', subtitle='Average riding duration (s)', x=' ', y='')
+```
+
+Analyze full-year ridership data by type and weekday
+```{r}
+data_fullyear <- all_trips_v2 %>% 
+  mutate(weekday = wday(started_at, label = TRUE)) %>%    # Create weekday field 
+  group_by(member_casual, weekday) %>%                    # Group by type and weekday
+  summarise(number_of_rides = n()						            	# Calculate the number of rides and average duration 
+            ,average_duration = mean(ride_length)) %>% 		# Calculate the average duration
+  arrange(member_casual, weekday)                         # Sort
+```
+
+Visualize the number of rides by rider type
+```{r}
+data_fullyear  %>% 
+  ggplot(aes(x = weekday, y = number_of_rides, fill = member_casual)) +
+  geom_col(position = "dodge") +
+  labs(title='Weekly Riding Patterns of a Year', subtitle='Number of rides', x=' ', y='')
+```
+
+Visualize the average duration by rider type
+```{r}
+data_fullyear  %>% 
+  ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
+  geom_col(position = "dodge") +
+  labs(title='Weekly Riding Patterns of a Year', subtitle='Average riding duration (s)', x=' ', y='')
+```
+
+## STEP 5: EXPORT SUMMARY FILE FOR FURTHER ANALYSIS
+Create csv files that we will visualize in Excel, Tableau, or presentation software
+```{r}
+#write.csv(data_monthly, file = 'data_monthly.csv')
+#write.csv(data_fullyear, file = 'data_fullyear.csv')
+```
+
+
