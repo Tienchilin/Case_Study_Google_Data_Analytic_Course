@@ -15,10 +15,10 @@ Please download the data from 2023/12 to 2024/12 [here](https://divvy-tripdata.s
 For more details, please check the [Case_Study_1](R_for_case_study/case_study_1.Rmd) file.
 ## Preliminary results in R
 Following the instructions in [Case_Study_1](R_for_case_study/case_study_1.Rmd), four graphs can be generated. <br />
-The first two are the weekly rides and riding durations by month: <br /> <br />
+###The first two are the weekly rides and riding durations by month: <br />
 ![Figure1](R_for_case_study/weekly_num_ride_by_month.png) 
 ![Figure2](R_for_case_study/weekly_ride_length_by_month.png) <br /><br />
-The last two are the rides and riding durations throughout the previous year:
+###The last two are the rides and riding durations throughout the previous year: <br />
 ![Figure3](R_for_case_study/weekly_num_ride_by_year.png) 
 ![Figure4](R_for_case_study/weekly_ride_length_by_year.png) <br /><br />
 We can observe some trends:
