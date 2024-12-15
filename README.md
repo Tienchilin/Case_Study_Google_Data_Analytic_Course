@@ -21,10 +21,12 @@ The first two are the weekly rides and riding durations by month: <br /> <br />
 The last two are the rides and riding durations throughout the previous year:
 ![Figure3](R_for_case_study/weekly_num_ride_by_year.png) 
 ![Figure4](R_for_case_study/weekly_ride_length_by_year.png) <br /><br />
-We can observe a behavioral difference between casual riders and annual members:
+We can observe some trends:
 * Casual riders have more riding durations than annual members.
 * Casual riders have fewer rides than annual members.
-* 
+* The most popular riding time of the week is weekends.
+* The most popular riding time of the year is April to October.
+With these observations, we can design marketing strategies to convert casual riders into annual members.
 ## Visualization in Tableau
 After the data analysis in R, the results are put into Tableau for visualization. Currently, there are two versions: [Analysis result throughout the previous year](https://public.tableau.com/app/profile/tien.chi.lin/viz/Case_study1_17342928667420/Weekly_Num_Ride_by_Year) and [monthly analysis result](https://public.tableau.com/app/profile/tien.chi.lin/viz/Case_study1_17342948870680/Dashboard).
 ## License
