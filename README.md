@@ -6,7 +6,7 @@ I am a junior data analyst at a fictional bike-share company in Chicago. The dir
 [The previous 12 months of trip data](https://divvy-tripdata.s3.amazonaws.com/index.html) is under the [license](https://divvybikes.com/data-license-agreement). This is public data that we can use to explore how different customer types are using our bikes. But note that data-privacy issues
 prohibit us from using riders’ personally identifiable information. This means that we won’t be able to connect pass purchases to credit card numbers to determine if casual riders live in the service area or if they have purchased multiple single passes.
 ## Work in R
-Please download the data from 2023/12 to 2024/12 [here](https://divvy-tripdata.s3.amazonaws.com/index.html). After loading data to your RStudio, you can follow the approach in R, as follows:
+Please download the data from 2023/12 to 2024/12 [here](https://divvy-tripdata.s3.amazonaws.com/index.html). After loading data to your RStudio, you can follow the instructions in R, as follows:
 * Join these datasets by rows and transform the date time for analysis. 
 * Calculate the riding duration to clear all the bad data that contains negative values. 
 * Verify the rider type that should only contain "member" and "casual". 
