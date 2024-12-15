@@ -31,4 +31,3 @@ With these observations, we can design marketing strategies to convert casual ri
 After the data analysis in R, the results are put into Tableau for visualization. Currently, there are two versions: [Analysis result throughout the previous year](https://public.tableau.com/app/profile/tien.chi.lin/viz/Case_study1_17342928667420/Weekly_Num_Ride_by_Year) and [monthly analysis result](https://public.tableau.com/app/profile/tien.chi.lin/viz/Case_study1_17342948870680/Dashboard).
 ## License
 The trip data is under the [license](https://divvybikes.com/data-license-agreement).
-[some](R_for_case_study/case_study_1.html)
