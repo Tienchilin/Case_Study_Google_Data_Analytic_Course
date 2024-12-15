@@ -16,8 +16,8 @@ For more details, please check the [Case_Study_1](R_for_case_study/case_study_1.
 ## Preliminary results in R
 Following the instructions in [Case_Study_1](R_for_case_study/case_study_1.Rmd), four graphs can be generated.
 The first two are the weekly rides and riding durations by month:
-[Figure1](R_for_case_study/weekly_num_ride_by_month) [Figure2](R_for_case_study/weekly_ride_length_by_month)
+![Figure1](R_for_case_study/weekly_num_ride_by_month.png) ![Figure2](R_for_case_study/weekly_ride_length_by_month.png)
 The last two are the rides and riding durations throughout the previous year:
-[Figure3](R_for_case_study/weekly_num_ride_by_year) [Figure4](R_for_case_study/weekly_ride_length_by_year)
+![Figure3](R_for_case_study/weekly_num_ride_by_year.png) ![Figure4](R_for_case_study/weekly_ride_length_by_year.png)
 ## Visualization in Tableau
 After the data analysis in R, the results are put into Tableau for visualization. Currently, there are two versions: [Analysis result throughout the previous year](https://public.tableau.com/app/profile/tien.chi.lin/viz/Case_study1_17342928667420/Weekly_Num_Ride_by_Year) and [monthly analysis result](https://public.tableau.com/app/profile/tien.chi.lin/viz/Case_study1_17342948870680/Dashboard).
