@@ -14,7 +14,7 @@ Please download the data from 2023/12 to 2024/12 [here](https://divvy-tripdata.s
 * Verify the rider type that should only contain "member" and "casual". 
 * Calculate the number of trips and the average riding duration during a week, both monthly and throughout the previous year.
 * Visualize both in R and export results for Tableau.
-For more details, please check the [Case_Study_1](R_for_case_study/case_study_1.Rmd) file.
+For more details, please check the [Case_Study_1.rmd](R_for_case_study/case_study_1.Rmd) or [Case_Study_1.md](R_for_case_study/case_study_1.md) file.
 ## Preliminary results in R
 Following the instructions in [Case_Study_1](R_for_case_study/case_study_1.Rmd), four graphs can be generated.
 ### The first two are the weekly rides and riding durations by month: <br />
