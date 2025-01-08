@@ -1,5 +1,6 @@
 # Case_Study_Google_Data_Analytic_Course
 This is case study 1 in the Google Data Analytics Capstone: Complete a Case Study.
+
 Click [here](Coursera%20H5UFB3DW3SYG.pdf) to view the certificate.
 
 ## Scenario
@@ -14,9 +15,9 @@ Please download the data from 2023/12 to 2024/12 [here](https://divvy-tripdata.s
 * Verify the rider type that should only contain "member" and "casual". 
 * Calculate the number of trips and the average riding duration during a week, both monthly and throughout the previous year.
 * Visualize both in R and export results for Tableau.
-For more details, please check the [Case_Study_1.rmd](R_for_case_study/case_study_1.Rmd) or [Case_Study_1.md](R_for_case_study/case_study_1.md) file.
+For more details, please check [Case_Study_1.rmd](R_for_case_study/case_study_1.Rmd) or [Case_Study_1.md](R_for_case_study/case_study_1.md).
 ## Preliminary results in R
-Following the instructions in [Case_Study_1](R_for_case_study/case_study_1.Rmd), four graphs can be generated.
+Following the instructions in [Case_Study_1](R_for_case_study/case_study_1.Rmd) or [Case_Study_1.md](R_for_case_study/case_study_1.md), four graphs can be generated.
 ### The first two are the weekly rides and riding durations by month: <br />
 ![Figure1](R_for_case_study/weekly_num_ride_by_month.png) 
 ![Figure2](R_for_case_study/weekly_ride_length_by_month.png) <br />
