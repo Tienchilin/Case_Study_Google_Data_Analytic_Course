@@ -1,14 +1,14 @@
-# Case_Study_Google_Data_Analytic_Course
+# :rocket: Case_Study_Google_Data_Analytic_Course
 This is case study 1 in the Google Data Analytics Capstone: Complete a Case Study.
 
 Click [here](Coursera%20H5UFB3DW3SYG.pdf) to view the certificate.
 
-## Scenario
+## :page_facing_up: Scenario
 I am a junior data analyst at a fictional bike-share company in Chicago. The director believes that future success depends on maximizing the number of annual memberships. Therefore, the task is to understand how casual riders and annual members use bikes differently.
-## Data
+## :page_facing_up: Data
 [The previous 12 months of trip data](https://divvy-tripdata.s3.amazonaws.com/index.html) is under the [license](https://divvybikes.com/data-license-agreement). This is public data that we can use to explore how different customer types are using our bikes. But note that data-privacy issues
 prohibit us from using riders’ personally identifiable information. This means that we won’t be able to connect pass purchases to credit card numbers to determine if casual riders live in the service area or if they have purchased multiple single passes.
-## Work in R
+## :page_facing_up: Work in R
 Please download the data from 2023/12 to 2024/12 [here](https://divvy-tripdata.s3.amazonaws.com/index.html). After loading data to your RStudio, you can follow the instructions in R, as follows:
 * Join these datasets by rows and transform the date time for analysis. 
 * Calculate the riding duration to clear all the bad data that contains negative values. 
@@ -30,7 +30,7 @@ These graphs indicate some trends:
 * The most popular riding time of the week is weekends.
 * The most popular riding time of the year is April to October.
 With these observations, we can design marketing strategies to convert casual riders into annual members.
-## Visualization in Tableau
+## :page_facing_up: Visualization in Tableau
 After the data analysis in R, the results are put into Tableau for visualization. Currently, there are two versions: [Analysis result throughout the previous year](https://public.tableau.com/app/profile/tien.chi.lin/viz/Case_study1_17342928667420/Weekly_Num_Ride_by_Year) and [monthly analysis result](https://public.tableau.com/app/profile/tien.chi.lin/viz/Case_study1_17342948870680/Dashboard).
-## License
+## :page_facing_up: License
 The trip data is under the [license](https://divvybikes.com/data-license-agreement).
