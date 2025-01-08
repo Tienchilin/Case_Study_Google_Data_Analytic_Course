@@ -1,5 +1,7 @@
 # Case_Study_Google_Data_Analytic_Course
-This is case study 1 in the Google Data Analytics Capstone: Complete a Case Study
+This is case study 1 in the Google Data Analytics Capstone: Complete a Case Study.
+Click [here](Coursera%20H5UFB3DW3SYG.pdf) to view the certificate.
+
 ## Scenario
 I am a junior data analyst at a fictional bike-share company in Chicago. The director believes that future success depends on maximizing the number of annual memberships. Therefore, the task is to understand how casual riders and annual members use bikes differently.
 ## Data
